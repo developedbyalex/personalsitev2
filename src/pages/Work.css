@@ -298,6 +298,7 @@
 .contact-button {
   display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 100px;
@@ -305,16 +306,25 @@
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.9rem;
   text-decoration: none;
-  transition: all 0.3s ease;
   margin-bottom: 2rem;
   position: relative;
   overflow: hidden;
+  animation: buttonShine 3s linear infinite;
 }
 
-.contact-button:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-1px);
+@keyframes buttonShine {
+  0% {
+    background: rgba(255, 255, 255, 0.03);
+    transform: translateY(0);
+  }
+  50% {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+  }
+  100% {
+    background: rgba(255, 255, 255, 0.03);
+    transform: translateY(0);
+  }
 }
 
 .contact-button::before {
@@ -330,11 +340,23 @@
     transparent
   );
   left: -100%;
-  transition: 0.5s;
+  animation: shine 3s linear infinite;
 }
 
-.contact-button:hover::before {
-  left: 100%;
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  20% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.contact-button:hover {
+  border-color: var(--highlight-color);
 }
 
 .title-shine {
@@ -503,4 +525,122 @@
 .client-link:hover {
   color: var(--highlight-color);
   background: rgba(255, 255, 255, 0.05);
+}
+
+.client-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.client-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.client-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.client-card:hover::before {
+  opacity: 1;
+}
+
+.client-card-content {
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.client-logo-placeholder {
+  width: 48px;
+  height: 48px;
+  background: var(--highlight-color);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.client-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.client-card p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.client-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.client-tech-stack span {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.client-visit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--highlight-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.client-visit-link:hover {
+  transform: translateX(4px);
+}
+
+.client-visit-link svg {
+  transition: transform 0.2s ease;
+}
+
+.client-visit-link:hover svg {
+  transform: translateX(2px);
+}
+
+@media (max-width: 600px) {
+  .client-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .client-card-content {
+    padding: 1.5rem;
+  }
 } 

@@ -61,7 +61,14 @@ function Work() {
       title: "mcrep.gg",
       description: "A community-driven platform that helps Minecraft players build and verify their reputation.",
       tags: ["ReactJS", "TailwindCSS", "MongoDB", "ExpressJS"],
-      link: "#",
+      link: "https://mcrep.gg",
+      status: "Live"
+    },
+    {
+      title: "Wordie.gg",
+      description: "An interactive wordsearch platform where users can create, play, and share custom wordsearches with others.",
+      tags: ["ReactJS", "TailwindCSS", "VITE"],
+      link: "https://wordie.gg",
       status: "Live"
     },
     {
@@ -116,7 +123,14 @@ function Work() {
           className="contact-button"
           variants={itemVariants}
         >
-          ✨ have something in mind? contact me →
+          <motion.span
+            initial={{ rotate: 0 }}
+            animate={{ rotate: [0, 15, -15, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 1.5 }}
+          >
+            ✨
+          </motion.span>
+          have something in mind? contact me →
         </motion.a>
         
         <motion.p className="intro" variants={itemVariants}>
@@ -175,21 +189,94 @@ function Work() {
         
         <motion.div className="client-work" variants={itemVariants}>
           <motion.h2 variants={itemVariants}>Selected Client Work</motion.h2>
-          <motion.ul className="client-list" variants={itemVariants}>
-            <motion.li variants={itemVariants}>
-              <span className="client-name">WeMod Academy</span>
-              <span className="client-description">A social media company that helps you build a presence online</span>
-            </motion.li>
-            <motion.li variants={itemVariants}>
-              <span className="client-name">CamoBots</span>
-              <span className="client-description">A robotics club</span>
-            </motion.li>
-            <motion.li variants={itemVariants}>
-              <span className="client-name">Ojalas.se</span>
-              <span className="client-description">A Swedish professional window cleaning and maintenance company</span>
-            </motion.li>
-            <motion.li className="more-clients" variants={itemVariants}>...and many more amazing clients</motion.li>
-          </motion.ul>
+          <motion.div className="client-grid" variants={containerVariants}>
+            <motion.div 
+              className="client-card"
+              variants={itemVariants}
+              whileHover={{ y: -5, scale: 1.02 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="client-card-content">
+                <div className="client-logo-placeholder">WA</div>
+                <h3>WeMod Academy</h3>
+                <p>A social media company that helps you build a presence online</p>
+                <div className="client-tech-stack">
+                  <span>React</span>
+                  <span>Node.js</span>
+                  <span>MongoDB</span>
+                </div>
+                <a 
+                  href="https://wemodacademy.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="client-visit-link"
+                >
+                  Visit Website
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="client-card"
+              variants={itemVariants}
+              whileHover={{ y: -5, scale: 1.02 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="client-card-content">
+                <div className="client-logo-placeholder">CB</div>
+                <h3>CamoBots</h3>
+                <p>A robotics club pushing the boundaries of automation and innovation</p>
+                <div className="client-tech-stack">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                </div>
+                <a 
+                  href="https://cambots.xyz" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="client-visit-link"
+                >
+                  Visit Website
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="client-card"
+              variants={itemVariants}
+              whileHover={{ y: -5, scale: 1.02 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="client-card-content">
+                <div className="client-logo-placeholder">OJ</div>
+                <h3>Ojalas.se</h3>
+                <p>A Swedish professional window cleaning and maintenance company</p>
+                <div className="client-tech-stack">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                </div>
+                <a 
+                  href="https://ojalas.se" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="client-visit-link"
+                >
+                  Visit Website
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
         </motion.div>
       </main>
     </motion.div>
